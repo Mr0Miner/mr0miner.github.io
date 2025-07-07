@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>پروفایل شخصی من | توسعه‌دهنده وب و نرم‌افزار</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://avatars.githubusercontent.com/u/148996144?v=4"
+      type="image/x-icon"
+    />
+    <style>
+      /* Reset and Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #111827;
+        color: white;
+        font-family: sans-serif;
+        transition: background-color 0.3s ease;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      /* Header Styles */
+      .header {
+        background: linear-gradient(to right, #1d4ed8, #3b82f6);
+        color: white;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-around;
+        padding: 1rem 0;
+        align-items: center;
+        flex-direction: row-reverse;
+      }
+
+      .search-container {
+        width: 33.333333%;
+      }
+
+      .search-input {
+        width: 100%;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        background-color: #1f2937;
+        color: white;
+        border: 1px solid #4b5563;
+        font-family: sans-serif;
+      }
+
+      .search-input:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #60a5fa;
+      }
+
+      .nav {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .nav a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .nav a:hover {
+        color: #93c5fd;
+      }
+
+      .profile-pic {
+        text-decoration: none;
+      }
+
+      .profile-pic img {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        border: 2px solid #93c5fd;
+        transition: transform 0.3s ease;
+      }
+
+      .profile-pic p {
+        color: white;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .profile-pic:hover img,
+      .profile-pic:hover p {
+        transform: scale(1.02);
+      }
+
+      .profile-pic:hover p {
+        color: #93c5fd;
+      }
+
+      /* Section Styles */
+      .section {
+        padding: 4rem 0;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .section-title {
+        font-size: 2.25rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #60a5fa;
+      }
+
+      .section-title.down {
+        font-size: 1.25rem;
+        font-weight: normal;
+      }
+
+      .section-dark {
+        background-color: #1f2937;
+      }
+
+      /* About Section */
+      .about-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .about-text {
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+        text-align: justify;
+      }
+
+      .about-text.hi {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #93c5fd;
+      }
+
+      .about-text.bold {
+        font-weight: bold;
+        color: #93c5fd;
+        text-align: center;
+      }
+
+      .about-image {
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+        max-width: 50%;
+      }
+
+      .about-image:hover {
+        transform: scale(1.03);
+      }
+
+      /* Socials Section */
+      .socials-container {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+      }
+
+      .social-link {
+        font-size: 3.25rem;
+        color: #60a5fa;
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+
+      .social-link:hover {
+        color: #2563eb;
+        transform: scale(1.03);
+      }
+
+      /* Tech Stack Section */
+      .tech-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .tech-card {
+        background-color: #1f2937;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .tech-card:hover {
+        transform: scale(1.02);
+      }
+
+      .tech-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: #93c5fd;
+        text-align: center;
+      }
+
+      .tech-card-grid {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        font-size: 4rem;
+        color: #60a5fa;
+      }
+
+      .tech-card-grid img {
+        width: 4rem;
+      }
+
+      /* Projects Section */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .project-card {
+        background-color: #202833;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        animation: fadeSlide 0.5s ease;
+      }
+
+      .project-card:hover {
+        transform: scale(1.02);
+      }
+
+      .project-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #93c5fd;
+        unicode-bidi: plaintext;
+        direction: unset;
+        text-align: start;
+      }
+
+      .project-description {
+        color: #9ca3af;
+        margin-bottom: 1rem;
+        unicode-bidi: plaintext;
+        direction: unset;
+        text-align: start;
+      }
+
+      .project-link {
+        color: #60a5fa;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        display: flex;
+        justify-content: center;
+      }
+
+      .project-link:hover {
+        color: #2563eb;
+      }
+
+      /* Load More Button */
+      .load-more-btn {
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        background: linear-gradient(to right, #2563eb, #3b82f6);
+        color: white;
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+        border: none;
+        border-radius: 9999px;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        transition: all 0.3s ease;
+        margin-top: 1rem;
+      }
+
+      .load-more-btn:hover {
+        background: linear-gradient(to right, #1d4ed8, #2563eb);
+        transform: scale(1.02);
+        box-shadow: 0 8px 20px rgba(59, 130, 246, 0.5);
+      }
+
+      /* Footer */
+      .footer {
+        background: linear-gradient(to right, #0f172a, #1e293b);
+        color: white;
+        padding: 2.5rem 0;
+        text-align: center;
+        border-top: 1px solid #374151;
+      }
+
+      .footer p {
+        color: #e5e7eb;
+      }
+
+      /* Highlight */
+      .highlight {
+        background-color: rgba(255, 255, 0, 0.3);
+        transition: background-color 0.3s ease;
+      }
+
+      /* Animations */
+      @keyframes fadeSlide {
+        from {
+          transform: translateY(20px);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .container {
+          padding: 0 2rem;
+        }
+
+        .header-content {
+          gap: 1rem;
+        }
+
+        .search-container {
+          width: 25%;
+        }
+
+        .nav {
+          gap: 1rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .about-content {
+          gap: 1.5rem;
+        }
+
+        .about-text {
+          font-size: 1rem;
+        }
+
+        .about-text.hi {
+          font-size: 1.25rem;
+        }
+
+        .social-link {
+          font-size: 2.5rem;
+        }
+
+        .tech-card-grid {
+          font-size: 3rem;
+        }
+
+        .tech-card-grid img {
+          width: 3rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column-reverse;
+          gap: 1rem;
+          padding: 1rem 0;
+        }
+
+        .mt-20 {
+          margin-top: 10rem;
+        }
+
+        .search-container {
+          width: 100%;
+          order: 1;
+        }
+
+        .nav {
+          order: 2;
+          gap: 1.5rem;
+        }
+
+        .profile-pic {
+          order: 3;
+        }
+
+        .section {
+          padding: 3rem 0;
+        }
+
+        .section-title {
+          font-size: 1.75rem;
+        }
+
+        .section-title.down {
+          font-size: 1.125rem;
+        }
+
+        .about-content {
+          flex-direction: column;
+          text-align: center;
+          gap: 2rem;
+        }
+
+        .about-image {
+          max-width: 80%;
+          margin: 0 auto;
+        }
+
+        .about-text {
+          font-size: 1.125rem;
+          text-align: justify;
+        }
+
+        .socials-container {
+          gap: 2rem;
+        }
+
+        .social-link {
+          font-size: 2.25rem;
+        }
+
+        .tech-grid {
+          gap: 1.5rem;
+        }
+
+        .tech-card {
+          padding: 1.25rem;
+        }
+
+        .tech-title {
+          font-size: 1.25rem;
+        }
+
+        .projects-grid {
+          gap: 1.5rem;
+        }
+
+        .project-card {
+          padding: 1.25rem;
+        }
+
+        .project-title {
+          font-size: 1.125rem;
+        }
+
+        .load-more-btn {
+          padding: 0.625rem 1.5rem;
+          font-size: 0.875rem;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          padding: 0 1rem;
+        }
+
+        .header-content {
+          padding: 0.75rem 0;
+        }
+
+        .nav {
+          gap: 1rem;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .nav a {
+          font-size: 0.875rem;
+        }
+
+        .profile-pic img {
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+
+        .profile-pic p {
+          font-size: 0.75rem;
+        }
+
+        .mt-20 {
+          margin-top: 10rem;
+        }
+
+        .section {
+          padding: 2rem 0;
+        }
+
+        .section-title {
+          font-size: 1.5rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .section-title.down {
+          font-size: 1rem;
+        }
+
+        .about-content {
+          gap: 1.5rem;
+        }
+
+        .about-image {
+          max-width: 100%;
+        }
+
+        .about-text {
+          font-size: 0.875rem;
+          text-align: justify;
+        }
+
+        .about-text.hi {
+          font-size: 1.125rem;
+        }
+
+        .socials-container {
+          gap: 1.5rem;
+        }
+
+        .social-link {
+          font-size: 2rem;
+        }
+
+        .tech-card {
+          padding: 1rem;
+        }
+
+        .tech-title {
+          font-size: 1.125rem;
+        }
+
+        .tech-card-grid {
+          font-size: 2rem;
+          gap: 0.5rem;
+        }
+
+        .tech-card-grid img {
+          width: 2rem;
+        }
+
+        .project-card {
+          padding: 1rem;
+        }
+
+        .project-title {
+          font-size: 1rem;
+        }
+
+        .project-description {
+          font-size: 0.875rem;
+        }
+
+        .load-more-btn {
+          padding: 0.5rem 1.25rem;
+          font-size: 0.75rem;
+        }
+
+        .footer {
+          padding: 2rem 0;
+        }
+
+        .footer p {
+          font-size: 0.875rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header-content {
+          padding: 0.5rem 0;
+        }
+
+        .nav {
+          gap: 0.75rem;
+        }
+
+        .nav a {
+          font-size: 0.75rem;
+        }
+
+        .search-input {
+          padding: 0.375rem;
+          font-size: 0.875rem;
+        }
+
+        .profile-pic img {
+          width: 2rem;
+          height: 2rem;
+        }
+
+        .profile-pic p {
+          font-size: 0.625rem;
+        }
+
+        .mt-20 {
+          margin-top: 10rem;
+        }
+
+        .section {
+          padding: 1.5rem 0;
+        }
+
+        .section-title {
+          font-size: 1.25rem;
+          margin-bottom: 1rem;
+        }
+
+        .section-title.down {
+          font-size: 0.875rem;
+        }
+
+        .about-text {
+          font-size: 0.75rem;
+        }
+
+        .about-text.hi {
+          font-size: 1rem;
+        }
+
+        .socials-container {
+          gap: 1rem;
+        }
+
+        .social-link {
+          font-size: 1.75rem;
+        }
+
+        .tech-card {
+          padding: 0.75rem;
+        }
+
+        .tech-title {
+          font-size: 1rem;
+        }
+
+        .tech-card-grid {
+          font-size: 1.75rem;
+        }
+
+        .tech-card-grid img {
+          width: 1.75rem;
+        }
+
+        .project-card {
+          padding: 0.75rem;
+        }
+
+        .project-title {
+          font-size: 0.875rem;
+        }
+
+        .project-description {
+          font-size: 0.75rem;
+        }
+
+        .load-more-btn {
+          padding: 0.375rem 1rem;
+          font-size: 0.625rem;
+        }
+
+        .footer {
+          padding: 1.5rem 0;
+        }
+
+        .footer p {
+          font-size: 0.75rem;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .container {
+          padding: 0 0.5rem;
+        }
+
+        .nav {
+          gap: 0.5rem;
+        }
+
+        .nav a {
+          font-size: 0.625rem;
+        }
+
+        .search-input {
+          padding: 0.25rem;
+          font-size: 0.75rem;
+        }
+
+        .profile-pic img {
+          width: 1.75rem;
+          height: 1.75rem;
+        }
+
+        .profile-pic p {
+          font-size: 0.5rem;
+        }
+
+        .mt-20 {
+          margin-top: 10rem;
+        }
+
+        .section {
+          padding: 1rem 0;
+        }
+
+        .section-title {
+          font-size: 1.125rem;
+        }
+
+        .section-title.down {
+          font-size: 0.75rem;
+        }
+
+        .about-text {
+          font-size: 0.625rem;
+        }
+
+        .about-text.hi {
+          font-size: 0.875rem;
+        }
+
+        .socials-container {
+          gap: 0.75rem;
+        }
+
+        .social-link {
+          font-size: 1.5rem;
+        }
+
+        .tech-card {
+          padding: 0.5rem;
+        }
+
+        .tech-title {
+          font-size: 0.875rem;
+        }
+
+        .tech-card-grid {
+          font-size: 1.5rem;
+        }
+
+        .tech-card-grid img {
+          width: 1.5rem;
+        }
+
+        .project-card {
+          padding: 0.5rem;
+        }
+
+        .project-title {
+          font-size: 0.75rem;
+        }
+
+        .project-description {
+          font-size: 0.625rem;
+        }
+
+        .load-more-btn {
+          padding: 0.25rem 0.75rem;
+          font-size: 0.5rem;
+        }
+
+        .footer {
+          padding: 1rem 0;
+        }
+
+        .footer p {
+          font-size: 0.625rem;
+        }
+      }
+
+      /* Landscape orientation for mobile devices */
+      @media (max-height: 500px) and (orientation: landscape) {
+        .header-content {
+          padding: 0.5rem 0;
+        }
+
+        .mt-20 {
+          margin-top: 10rem;
+        }
+
+        .section {
+          padding: 1.5rem 0;
+        }
+
+        .about-content {
+          gap: 1rem;
+        }
+
+        .about-image {
+          max-width: 40%;
+        }
+
+        .socials-container {
+          gap: 1rem;
+        }
+
+        .social-link {
+          font-size: 1.5rem;
+        }
+      }
+
+      /* High DPI displays */
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .profile-pic img {
+          border-width: 1px;
+        }
+
+        .tech-card-grid img {
+          image-rendering: -webkit-optimize-contrast;
+          image-rendering: crisp-edges;
+        }
+      }
+
+      /* Print styles */
+      @media print {
+        .header {
+          position: static;
+          background: white;
+          color: black;
+        }
+
+        .search-container,
+        .nav,
+        .load-more-btn {
+          display: none;
+        }
+
+        .section {
+          padding: 1rem 0;
+          page-break-inside: avoid;
+        }
+
+        .project-card {
+          page-break-inside: avoid;
+        }
+
+        body {
+          background: white;
+          color: black;
+        }
+
+        .section-dark {
+          background: #f5f5f5;
+        }
+
+        .tech-card,
+        .project-card {
+          background: white;
+          border: 1px solid #ddd;
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="search-container">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="جستجو در سایت..."
+              class="search-input"
+            />
+          </div>
+          <nav class="nav">
+            <a href="#about">درباره من</a>
+            <a href="#socials">شبکه‌های اجتماعی</a>
+            <a href="#tech-stack">زبان‌ها و فریم‌ورک‌ها</a>
+            <a href="#projects">پروژه‌ها</a>
+          </nav>
+          <a
+            class="profile-pic"
+            href="https://github.com/Mr0Miner"
+            target="_blank"
+          >
+            <img
+              src="https://avatars.githubusercontent.com/u/148996144?v=4"
+              alt="Profile Picture"
+            />
+            <p>GitHub</p>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- About Me -->
+    <section id="about" class="section mt-20">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-text-container">
+            <p class="about-text hi">سلام! من مستر ماینر هستم.</p>
+            <p class="about-text">
+              یک توسعه‌دهنده وب و برنامه نویس خلاق با عشق به نوآوری هستم.
+            </p>
+            <p class="about-text">
+              من در تبدیل ایده‌ها به راه‌حل‌های کاربردی و زیبا از طریق دنیای
+              برنامه نویسی مهارت خوبی دارم. برای من، برنامه‌نویسی فقط یک شغل
+              نیست، بلکه یک هنر و ابزاری قدرتمند برای تبدیل جهان به مکانی بهتر
+              است.
+            </p>
+            <p class="about-text bold">«برای ساختن فردایی روشن تر.»</p>
+          </div>
+          <img
+            src="about-me-noBG.png"
+            alt="About Me Image"
+            class="about-image"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Socials -->
+    <section id="socials" class="section section-dark">
+      <div class="container">
+        <h2 class="section-title">شبکه‌های اجتماعی من</h2>
+        <div class="socials-container">
+          <a href="https://linkedin.com" target="_blank" class="social-link">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://discord.com" target="_blank" class="social-link">
+            <i class="fab fa-discord"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" class="social-link">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://youtube.com" target="_blank" class="social-link">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section id="tech-stack" class="section">
+      <div class="container">
+        <h2 class="section-title" style="margin-bottom: 0">
+          زبان‌ها و فریم‌ورک‌ها
+        </h2>
+        <h4 class="section-title down">که من میدانم</h4>
+        <div class="tech-grid">
+          <div class="tech-card">
+            <h3 class="tech-title">Frontend</h3>
+            <div class="tech-card-grid">
+              <i class="fab fa-html5"></i>
+              <i class="fab fa-css3-alt"></i>
+              <i class="fab fa-react"></i>
+            </div>
+          </div>
+          <div class="tech-card">
+            <h3 class="tech-title">Backend</h3>
+            <div class="tech-card-grid">
+              <i class="fab fa-js"></i>
+              <i class="fab fa-python"></i>
+              <img
+                src="data:image/png;base64,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"
+                alt="C#"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects List -->
+    <section id="projects" class="section section-dark">
+      <div class="container">
+        <h2 class="section-title">پروژه‌ها</h2>
+        <div id="projects-list" class="projects-grid">
+          <!-- Projects will be dynamically loaded here -->
+        </div>
+        <div class="container" style="text-align: center; margin-top: 1rem">
+          <button id="loadMoreBtn" class="load-more-btn">نمایش بیشتر</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p>طراحی و توسعه توسط <strong>Mr0Miner</strong> &copy; 2025</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Search and highlight functionality
+      document
+        .getElementById("searchInput")
+        .addEventListener("input", function (e) {
+          const searchTerm = e.target.value.trim().toLowerCase();
+          const sections = document.querySelectorAll("section");
+          let found = false;
+
+          // Remove previous highlights
+          document.querySelectorAll(".highlight").forEach((el) => {
+            const text = el.textContent;
+            el.outerHTML = text;
+          });
+
+          if (searchTerm) {
+            sections.forEach((section) => {
+              const textNodes = getTextNodes(section);
+              let sectionFound = false;
+
+              textNodes.forEach((node) => {
+                const text = node.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                  sectionFound = true;
+                  if (!found) {
+                    section.scrollIntoView({ behavior: "smooth" });
+                    found = true;
+                  }
+                  const regex = new RegExp(`(${searchTerm})`, "gi");
+                  const newText = node.textContent.replace(
+                    regex,
+                    '<span class="highlight">$1</span>'
+                  );
+                  const newNode = document.createElement("span");
+                  newNode.innerHTML = newText;
+                  node.parentNode.replaceChild(newNode, node);
+                }
+              });
+
+              //section.style.display = sectionFound ? 'block' : 'none';
+            });
+
+            if (!found) {
+              sections.forEach((section) => (section.style.display = "block"));
+            }
+          } else {
+            sections.forEach((section) => (section.style.display = "block"));
+          }
+        });
+
+      // Helper function to get text nodes
+      function getTextNodes(element) {
+        const nodes = [];
+        const walker = document.createTreeWalker(
+          element,
+          NodeFilter.SHOW_TEXT,
+          {
+            acceptNode: (node) => {
+              if (
+                node.parentNode.nodeName !== "SCRIPT" &&
+                node.parentNode.nodeName !== "STYLE"
+              ) {
+                return NodeFilter.FILTER_ACCEPT;
+              }
+              return NodeFilter.FILTER_REJECT;
+            },
+          }
+        );
+        let node;
+        while ((node = walker.nextNode())) {
+          nodes.push(node);
+        }
+        return nodes;
+      }
+
+      // Fetch GitHub projects
+      async function fetchGitHubProjects() {
+        const username = "Mr0Miner";
+        try {
+          const response = await fetch(
+            `https://api.github.com/users/${username}/repos`
+          );
+          const repos = await response.json();
+
+          const projectsList = document.getElementById("projects-list");
+          const loadMoreBtn = document.getElementById("loadMoreBtn");
+
+          let expanded = false;
+          let currentIndex = 0;
+          const projectsPerPage = 6;
+
+          function renderProjects(fromStart = false) {
+            if (fromStart) {
+              projectsList.innerHTML = "";
+              currentIndex = 0;
+            }
+
+            const endIndex = expanded
+              ? repos.length
+              : Math.min(currentIndex + projectsPerPage, repos.length);
+            for (let i = currentIndex; i < endIndex; i++) {
+              const repo = repos[i];
+              const repoCard = document.createElement("div");
+              repoCard.className = "project-card";
+              repoCard.innerHTML = `
+          <h3 class="project-title">${repo.name}</h3>
+          <p class="project-description">${
+            repo.description || "بدون توضیحات"
+          }</p>
+          <a href="${
+            repo.html_url
+          }" target="_blank" class="project-link">مشاهده در GitHub</a>
+        `;
+              projectsList.appendChild(repoCard);
+            }
+            currentIndex = endIndex;
+
+            // بروزرسانی متن دکمه
+            if (repos.length <= projectsPerPage) {
+              loadMoreBtn.style.display = "none";
+            } else {
+              loadMoreBtn.style.display = "inline-block";
+              loadMoreBtn.textContent = expanded
+                ? "بستن پروژه‌ها"
+                : "نمایش بیشتر";
+            }
+          }
+
+          // بارگذاری اولیه
+          renderProjects();
+
+          loadMoreBtn.addEventListener("click", () => {
+            expanded = !expanded;
+            renderProjects(true); // بازسازی کامل لیست
+          });
+        } catch (error) {
+          console.error("Error fetching GitHub repos:", error);
+        }
+      }
+
+      // Load projects on page load
+      window.onload = fetchGitHubProjects;
+    </script>
+  </body>
+</html>
